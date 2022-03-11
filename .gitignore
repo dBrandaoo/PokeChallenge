@@ -1,3 +1,6 @@
 .env
 
+backend/pokemons/*
+backend/pokemons2/*
+
 database/*

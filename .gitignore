@@ -4,5 +4,6 @@ backend/pokemon/*
 backend/pokemon2/*
 backend/PokeTemp/*
 backend/PokeTemp2/*
+backend/images/*
 
 database/*

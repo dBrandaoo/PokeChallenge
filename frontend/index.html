@@ -9,12 +9,182 @@
 	<meta name="description" content="__description_here__" />
 	<meta name="robots" content="index" />
 	<meta name="author" content="__developer_name__" />
+	<script src="https://cdn.tailwindcss.com"></script>
+	<style>
+		input:focus, textarea:focus, select:focus {
+			outline: none;
+		}
+	</style>
 </head>
 
 <body>
-	<h1>
-		Hello Trainer, Diogo
-	</h1>
+	<div style="background-color: #EBEBEB">
+		<div>
+			<div> <!-- Search bar / conditions -->
+				<table style="background-color: #FFFFFF" class="rounded-xl shadow-md w-5/12 h-16">
+					<tr>
+						<td>
+							<input type="text" placeholder="Search your Pokémon!" class="h-10 w-4/5 text-sm pl-5">
+						</td>
+						<td class="w-1/12">
+							<button type="button" class="text-3xl font-bold bg-red-500 text-white w-9 h-9 rounded-md"><a href="https://pm1.narvii.com/6568/c06c048eb366952cf718eece733fbebf8711d960_00.jpg" target="_blank">O</a></button>
+						</td>
+					</tr>
+				</table>
+				<table class="my-10 w-5/12">
+					<tr>
+						<td>
+							<select name="order" class="font-bold pl-5 bg-transparent">
+								<option value="ascending">Ascending</option>
+								<option value="descending">Descending</option>
+							</select>
+						</td>
+						<td class="text-right">
+							<label class="font-bold">from</label>
+							<input type="text" placeholder="" class="w-20 h-12 mx-2 rounded-xl text-center bg-transparent border border-gray-400">
+							<label class="font-bold">to</label>
+							<input type="text" placeholder="" class="w-20 h-12 mx-2 rounded-xl text-center bg-transparent border border-gray-400">
+						</td>
+					</tr>
+				</table>
+				<table class="mt-5">
+					<tr>
+						<td>
+							<select name="Type" class="bg-white mr-1 py-2 rounded-lg shadow-md w-36 text-gray-400 font-bold pl-4">
+								<option value="default">Type</option>
+								<option value="First">First</option>
+								<option value="Last">Last</option>
+							</select>
+						</td>
+						<td>
+							<select name="Weakness" class="bg-white mx-1 py-2 rounded-lg shadow-md w-36 text-gray-400 font-bold pl-4"> <!-- Change -->
+								<option value="default">Weakness</option>
+								<option value="Normal">Normal</option>
+								<option value="Fire">Fire</option>
+								<option value="Water">Water</option>
+								<option value="Electric">Electric</option>
+								<option value="Grass">Grass</option>
+								<option value="Ice">Ice</option>
+								<option value="Fighting">Fighting</option>
+								<option value="Poison">Poison</option>
+								<option value="Ground">Ground</option>
+								<option value="Flying">Flying</option>
+								<option value="Psychic">Psychic</option>
+								<option value="Bug">Bug</option>
+								<option value="Rock">Rock</option>
+								<option value="Ghost">Ghost</option>
+								<option value="Dragon">Dragon</option>
+								<option value="Dark">Dark</option>
+								<option value="Steel">Steel</option>
+								<option value="Fairy">Fairy</option>
+							</select>
+						</td>
+						<td>
+							<select name="Ability" class="bg-white mx-1 py-2 rounded-lg shadow-md w-36 text-gray-400 font-bold pl-4">
+								<option value="default">Ability</option>
+								<option value="First">First</option>
+								<option value="Last">Last</option>
+							</select>
+						</td>
+						<td>
+							<select name="Height" class="bg-white mx-1 py-2 rounded-lg shadow-md w-36 text-gray-400 font-bold pl-4">
+								<option value="default">Height</option>
+								<option value="First">First</option>
+								<option value="Last">Last</option>
+							</select>
+						</td>
+						<td>
+							<select name="Weight" class="bg-white ml-1 py-2 rounded-lg shadow-md w-36 text-gray-400 font-bold pl-4">
+								<option value="default">Weight</option>
+								<option value="First">First</option>
+								<option value="Last">Last</option>
+							</select>
+						</td>
+						<td>
+							<button class="text-lg bg-gray-400 text-white w-9 h-9 rounded-lg ml-1"><--</button> <!-- Reload Button -->
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div>
+			<!-- Pokemon (sprites) -->
+		</div>
+
+		<div> <!-- DETAILED INFO -->
+			<img src="" alt="Pokemon image">
+			<ul>
+				<li>
+					<!-- ID -->
+				</li>
+
+				<li>
+					<!-- Name-->
+				</li>
+
+				<li>
+					<table>
+						<tr>
+							<td>
+								<!-- type -->
+							</td>
+							<td>
+								<!-- type -->
+							</td>
+						</tr>
+					</table>
+				</li>
+
+				<li>
+					<h6 class="">POKÉDEX ENTRY</h6>
+					<!-- Description -->
+				</li>
+
+				<li>
+					<table>
+						<caption>ABILITIES</caption>
+						<tr>
+							<td>
+								<!-- Normal -->
+							</td>
+							<td>
+								<!-- Hidden -->
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h6>HEIGHT</h6>
+							</td>
+							<td>
+								<h6>WEIGHT</h6>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h6>WEAKNESSES</h6>
+							</td>
+							<td>
+								<h6>BASE EXP</h6>
+							</td>
+						</tr>
+					</table>
+				</li>
+
+				<li>
+					<table>
+						<caption>STATS</caption>
+						<tr>
+							<!-- Stats (Images) -->
+						</tr>
+						<tr>
+							<!-- Stats (variables) -->
+						</tr>
+					</table>
+				</li>
+			</ul>
+		</div>
+	</div>
 </body>
 
 </html>

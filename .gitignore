@@ -6,5 +6,6 @@ backend/PokeTemp/*
 backend/PokeTemp2/*
 backend/images/*
 frontend/node_modules/*
+frontend/images/*
 
 database/*

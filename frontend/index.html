@@ -1,190 +1,241 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<title>Pokémon Challenge</title>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="keywords" content="__keywords_here__" />
 	<meta name="description" content="__description_here__" />
 	<meta name="robots" content="index" />
 	<meta name="author" content="__developer_name__" />
+	<link rel="stylesheet" href="css/styles.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script src="https://cdn.tailwindcss.com"></script>
-	<style>
-		input:focus, textarea:focus, select:focus {
-			outline: none;
-		}
-	</style>
 </head>
+<body class="body">
+	<div class="wrapper">
+		<table style="background-color: #FFFFFF" class="rounded-xl shadow-md w-full h-16" id="input">
+			<tr>
+				<td>
+					<input type="search" placeholder="Search your Pokémon!" class="h-10 w-4/5 text-sm pl-5" id="searchBar">
+				</td>
+				<td class="w-1/12">
+					<button type="button" class="text-3xl bg-red-500 text-white w-9 h-9 rounded-md shadow-lg shadow-red-500" onclick="searchFull(getValue())">
+						<i class="material-icons hover:animate-bounce">catching_pokemon</i>
+					</button>
+				</td>
+			</tr>
+		</table>
 
-<body>
-	<div style="background-color: #EBEBEB">
-		<div>
-			<div> <!-- Search bar / conditions -->
-				<table style="background-color: #FFFFFF" class="rounded-xl shadow-md w-5/12 h-16">
-					<tr>
-						<td>
-							<input type="text" placeholder="Search your Pokémon!" class="h-10 w-4/5 text-sm pl-5">
-						</td>
-						<td class="w-1/12">
-							<button type="button" class="text-3xl font-bold bg-red-500 text-white w-9 h-9 rounded-md"><a href="https://pm1.narvii.com/6568/c06c048eb366952cf718eece733fbebf8711d960_00.jpg" target="_blank">O</a></button>
-						</td>
-					</tr>
-				</table>
-				<table class="my-10 w-5/12">
-					<tr>
-						<td>
-							<select name="order" class="font-bold pl-5 bg-transparent">
-								<option value="ascending">Ascending</option>
-								<option value="descending">Descending</option>
-							</select>
-						</td>
-						<td class="text-right">
-							<label class="font-bold">from</label>
-							<input type="text" placeholder="" class="w-20 h-12 mx-2 rounded-xl text-center bg-transparent border border-gray-400">
-							<label class="font-bold">to</label>
-							<input type="text" placeholder="" class="w-20 h-12 mx-2 rounded-xl text-center bg-transparent border border-gray-400">
-						</td>
-					</tr>
-				</table>
-				<table class="mt-5">
-					<tr>
-						<td>
-							<select name="Type" class="bg-white mr-1 py-2 rounded-lg shadow-md w-36 text-gray-400 font-bold pl-4">
-								<option value="default">Type</option>
-								<option value="First">First</option>
-								<option value="Last">Last</option>
-							</select>
-						</td>
-						<td>
-							<select name="Weakness" class="bg-white mx-1 py-2 rounded-lg shadow-md w-36 text-gray-400 font-bold pl-4"> <!-- Change -->
-								<option value="default">Weakness</option>
-								<option value="Normal">Normal</option>
-								<option value="Fire">Fire</option>
-								<option value="Water">Water</option>
-								<option value="Electric">Electric</option>
-								<option value="Grass">Grass</option>
-								<option value="Ice">Ice</option>
-								<option value="Fighting">Fighting</option>
-								<option value="Poison">Poison</option>
-								<option value="Ground">Ground</option>
-								<option value="Flying">Flying</option>
-								<option value="Psychic">Psychic</option>
-								<option value="Bug">Bug</option>
-								<option value="Rock">Rock</option>
-								<option value="Ghost">Ghost</option>
-								<option value="Dragon">Dragon</option>
-								<option value="Dark">Dark</option>
-								<option value="Steel">Steel</option>
-								<option value="Fairy">Fairy</option>
-							</select>
-						</td>
-						<td>
-							<select name="Ability" class="bg-white mx-1 py-2 rounded-lg shadow-md w-36 text-gray-400 font-bold pl-4">
-								<option value="default">Ability</option>
-								<option value="First">First</option>
-								<option value="Last">Last</option>
-							</select>
-						</td>
-						<td>
-							<select name="Height" class="bg-white mx-1 py-2 rounded-lg shadow-md w-36 text-gray-400 font-bold pl-4">
-								<option value="default">Height</option>
-								<option value="First">First</option>
-								<option value="Last">Last</option>
-							</select>
-						</td>
-						<td>
-							<select name="Weight" class="bg-white ml-1 py-2 rounded-lg shadow-md w-36 text-gray-400 font-bold pl-4">
-								<option value="default">Weight</option>
-								<option value="First">First</option>
-								<option value="Last">Last</option>
-							</select>
-						</td>
-						<td>
-							<button class="text-lg bg-gray-400 text-white w-9 h-9 rounded-lg ml-1"><--</button> <!-- Reload Button -->
-						</td>
-					</tr>
-				</table>
+		<table class="w-full">
+			<tr>
+				<td>
+					<select name="order" class="font-bold bg-transparent">
+						<option value="ascending">Ascending</option>
+						<option value="descending">Descending</option>
+					</select>
+				</td>
+				<td class="text-right">
+					<label class="font-bold">from</label>
+					<input type="text" placeholder="" class="w-20 h-12 mx-2 rounded-xl text-center bg-transparent border border-gray-400">
+					<label class="font-bold">to</label>
+					<input type="text" placeholder="" class="w-20 h-12 ml-2 rounded-xl text-center bg-transparent border border-gray-400">
+				</td>
+			</tr>
+		</table>
+
+		<div class="conditions"> <!-- conditions -->
+			<div> <!-- type -->
+				<select name="Type" class="bg-white mr-1 py-3 rounded-lg shadow-md w-44 text-gray-400 font-bold pl-4" id="type">
+					<option value="default">Type</option>
+					<option value="normal">Normal</option>
+					<option value="fire">Fire</option>
+					<option value="water">Water</option>
+					<option value="electric">Electric</option>
+					<option value="grass">Grass</option>
+					<option value="ice">Ice</option>
+					<option value="fighting">Fighting</option>
+					<option value="poison">Poison</option>
+					<option value="ground">Ground</option>
+					<option value="flying">Flying</option>
+					<option value="psychic">Psychic</option>
+					<option value="bug">Bug</option>
+					<option value="rock">Rock</option>
+					<option value="ghost">Ghost</option>
+					<option value="dragon">Dragon</option>
+					<option value="dark">Dark</option>
+					<option value="steel">Steel</option>
+					<option value="fairy">Fairy</option>
+				</select>
+			</div>
+			<div> <!-- weakness -->
+				<select name="Weakness" class="bg-white mx-1 py-3 rounded-lg shadow-md w-44 text-gray-400 font-bold pl-4" id="weakness">
+					<option value="default">Weakness</option>
+					<option value="normal">Normal</option>
+					<option value="fire">Fire</option>
+					<option value="water">Water</option>
+					<option value="electric">Electric</option>
+					<option value="grass">Grass</option>
+					<option value="ice">Ice</option>
+					<option value="fighting">Fighting</option>
+					<option value="poison">Poison</option>
+					<option value="ground">Ground</option>
+					<option value="flying">Flying</option>
+					<option value="psychic">Psychic</option>
+					<option value="bug">Bug</option>
+					<option value="rock">Rock</option>
+					<option value="ghost">Ghost</option>
+					<option value="dragon">Dragon</option>
+					<option value="dark">Dark</option>
+					<option value="steel">Steel</option>
+					<option value="fairy">Fairy</option>
+				</select>
+			</div>
+			<div> <!-- ability -->
+				<select name="Ability" class="bg-white mx-1 py-3 rounded-lg shadow-md w-44 text-gray-400 font-bold pl-4" id="ability">
+					<option value="default">Ability</option>
+					<option value="a_to_f">[A-F]</option>
+					<option value="g_to_l">[G-L]</option>
+					<option value="m_to_r">[M-R]</option>
+					<option value="s_to_w">[S-W]</option>
+					<option value="x_to_z">[X-Z]</option>
+				</select>
+			</div>
+			<div> <!-- height -->
+				<select name="Height" class="bg-white mx-1 py-3 rounded-lg shadow-md w-44 text-gray-400 font-bold pl-4" id="height">
+					<option value="default">Height</option>
+					<option value="underHalf">< 0.5m</option>
+					<option value="underOne">< 1m</option>
+					<option value="underOneFive">< 1.5m</option>
+					<option value="underTwo">< 2m</option>
+					<option value="underFive">< 5m</option>
+					<option value="underTen">< 10m</option>
+					<option value="overTen">> 10m</option>
+				</select>
+			</div>
+			<div> <!-- weight -->
+				<select name="Weight" class="bg-white ml-1 py-3 rounded-lg shadow-md w-44 text-gray-400 font-bold pl-4" id="weight">
+					<option value="default">Weight</option>
+					<option value="underFive">< 5Kg</option>
+					<option value="underTen">< 10Kg</option>
+					<option value="underFifty">< 50Kg</option>
+					<option value="underOneHundred">< 100Kg</option>
+					<option value="underTwoHundred">< 200Kg</option>
+					<option value="underFiveHundred">< 500Kg</option>
+					<option value="overFiveHundred">> 500Kg</option>
+				</select>
+			</div>
+			<button class="text-lg bg-gray-400 text-white w-11 h-11.5 rounded-lg ml-1 align-middle" onclick="resetConditionsBtn()">
+				<i class="material-icons align-middle hover:animate-spin">refresh</i>
+			</button> <!-- Reload Button -->
+		</div>
+
+		<div class="rounded-3xl shadow-md sidebar"> <!-- Detailed info (side bar) -->
+
+			<img src="images/portraits/1.png">
+
+			<div class="displayID">
+				<a href="https://pm1.narvii.com/6256/8e0626c71cdda4c2554272359ec0ada432fdda41_hq.jpg" target="_blank">
+					<p>#1</p>
+				</a>
+			</div>
+
+			<div class="displayName">
+				<p>Bulbasaur</p>
+			</div>
+
+			<div class="text-m text-center text-gray-500">
+				<p>Seed</p>
+			</div>
+
+			<div class="types text-center py-4"> <!-- Change -->
+				<p class="bg-green-600 mx-12 h-7 rounded-md text-white">Grass</p>
+				<p class="bg-purple-600 mx-12 h-7 rounded-md text-white self-start">Poison</p>
+			</div> <!-- ### -->
+
+			<div class="text-center">
+				<p class="font-bold">POKÉDEX ENTRY</p>
+				<p>While it is young, it uses the nutrients that are stored in the seeds on its back in order to grow.</p>
+			</div>
+
+			<div class="text-center pt-4"> <!-- abilities -->
+				<p class="font-bold">ABILITIES</p>
+				<div class="abilities py-6"> <!-- Change -->
+					<div class="border rounded-3xl border-teal-700 mx-6 py-3 ">
+						<p class="text-left indent-3 text-sm font-bold align-middle">Overgrow</p>
+					</div>
+					<p class="border rounded-3xl border-red-700 mx-6 py-3 text-left indent-3 text-sm font-bold">Chlorophyll<span><i class="material-icons text-gray-400 text-right">visibility_off</i></span></p>
+				</div> <!-- ### -->
+			</div>
+
+			<div class="pokeAttributes"> <!-- grid: height, weight, weakness, base exp -->
+				<div> <!-- height -->
+					<p>HEIGHT</p>
+					<p>0.7m</p>
+				</div>
+				<div> <!-- weight -->
+					<p>WEIGHT</p>
+					<p>6.9Kg</p>
+				</div>
+				<div> <!-- weakness -->
+					<p>WEAKNESSES</p>
+					<p>x y z</p>
+				</div>
+				<div> <!-- base exp -->
+					<p>BASE EXP</p>
+					<p>64</p>
+				</div>
+			</div>
+
+			<p class="text-center font-bold pt-4 pb-2">STATS</p>
+			<div class="stats">
+				<div>
+					<p class="roundStat bg-red-600 ml-3.5">HP</p>
+					<p>45</p>
+				</div>
+				<div>
+					<p class="roundStat bg-orange-500 ml-3.5">ATK</p>
+					<p>49</p>
+				</div>
+				<div>
+					<p class="roundStat bg-yellow-500 ml-3.5">DEF</p>
+					<p>49</p>
+				</div>
+				<div>
+					<p class="roundStat bg-cyan-500 ml-3.5">SpA</p>
+					<p>65</p>
+				</div>
+				<div>
+					<p class="roundStat bg-green-500 ml-3.5">SpD</p>
+					<p>65</p>
+				</div>
+				<div>
+					<p class="roundStat bg-pink-300 ml-3.5">SPD</p>
+					<p>45</p>
+				</div>
+				<div class="rounded-t-[40%] rounded-b-[40%] bg-indigo-300 w-12">
+					<p class="roundStat bg-indigo-400 ml-1.5">TOT</p>
+					<p>318</p>
+				</div>
+			</div>
+
+			<div class="prevNextButton">
+				<div class="next"> <!-- BUTTON -->
+					<button type="button" onclick="searchFull(2)">
+						<img src="images/sprites/2.png"> <i class="material-icons">arrow_forward_ios</i></p>
+					</button>
+				</div>
 			</div>
 		</div>
 
-		<div>
-			<!-- Pokemon (sprites) -->
+		<div class="preview"> <!-- Card preview grid -->
+
 		</div>
 
-		<div> <!-- DETAILED INFO -->
-			<img src="" alt="Pokemon image">
-			<ul>
-				<li>
-					<!-- ID -->
-				</li>
+		<button class="pt-2 pb-2 font-bold bg-white shadow-lg rounded-xl mx-96 mb-10" onclick="loadMore()">LOAD MORE<i class="material-icons">expand_more</i></button>
 
-				<li>
-					<!-- Name-->
-				</li>
-
-				<li>
-					<table>
-						<tr>
-							<td>
-								<!-- type -->
-							</td>
-							<td>
-								<!-- type -->
-							</td>
-						</tr>
-					</table>
-				</li>
-
-				<li>
-					<h6 class="">POKÉDEX ENTRY</h6>
-					<!-- Description -->
-				</li>
-
-				<li>
-					<table>
-						<caption>ABILITIES</caption>
-						<tr>
-							<td>
-								<!-- Normal -->
-							</td>
-							<td>
-								<!-- Hidden -->
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<h6>HEIGHT</h6>
-							</td>
-							<td>
-								<h6>WEIGHT</h6>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<h6>WEAKNESSES</h6>
-							</td>
-							<td>
-								<h6>BASE EXP</h6>
-							</td>
-						</tr>
-					</table>
-				</li>
-
-				<li>
-					<table>
-						<caption>STATS</caption>
-						<tr>
-							<!-- Stats (Images) -->
-						</tr>
-						<tr>
-							<!-- Stats (variables) -->
-						</tr>
-					</table>
-				</li>
-			</ul>
-		</div>
 	</div>
+	<script src="js/script.js"></script>
 </body>
-
 </html>

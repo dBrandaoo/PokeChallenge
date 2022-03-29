@@ -1,0 +1,138 @@
+.body {
+    background-color: #eee;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin-top: 5em;
+    margin-left: 14em;
+    margin-right: 14em;
+    gap: 1.5em;
+}
+
+/* ############################### */
+
+.preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 3.25em;
+}
+
+
+.sprite {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pokeID {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: #9CA3AF;
+}
+
+.pokeName {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.previewTypes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-weight: bold;
+}
+
+.displayID {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: #9CA3AF;
+}
+
+.displayName {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+/* ############################### */
+.sort {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.conditions {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr)
+}
+
+.conditions > button {
+    margin-left: 15px;
+}
+
+.sidebar {
+    grid-column:2;
+    grid-row:1/5;
+    background-color: #fff;
+}
+
+.sidebar > img {
+    height: 250px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.types {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.abilities {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.pokeAttributes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    row-gap: 1.25em;
+}
+
+.pokeAttributes > div {
+    font-weight: bold;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    align-items: center;
+}
+
+.stats > div {
+    font-weight: bold;
+}
+
+.roundStat {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: small;
+    padding-top: 7px;
+}
+
+.changePokemon {
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: center;
+}
